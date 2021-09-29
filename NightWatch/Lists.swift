@@ -45,7 +45,7 @@ struct Lists: View {
             }
             Section(header: HStack{
                 Text(Image(systemName: "sunset"))
-                Text("- Weekly Tasks")
+                Text("Weekly Tasks")
                     .font(.title3)
                     .underline()
             }) {
@@ -56,7 +56,7 @@ struct Lists: View {
             }
             Section(header: HStack{
                 Text(Image(systemName: "calendar"))
-                Text("- Monthly Tasks")
+                Text("Monthly Tasks")
                     .font(.title3)
                     .underline()
 

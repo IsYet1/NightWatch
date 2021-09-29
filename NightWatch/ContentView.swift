@@ -6,61 +6,43 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        // MARK: Night tasks
-                        List {
-                            HStack {
-                                Text(Image(systemName: "moon.stars"))
-                                    .foregroundColor(.yellow)
-                                Text("Nightly tasks")
-                                    .font(.title3)
-                                    .foregroundColor(.yellow)
-                                    .underline()
-                            }
-                                
-                            Text("- Check all windows")
-                            Text("- Check all doors")
-                            Text("- Check the safe is locked")
-                            Text("- Check the mailbox")
-                            Text("- Inspect security cameras")
-                            Text("- Clear ice from sidewalks")
-                            Text("- Document \"strange and unusual\" occurences")
-                            Text("- One item too many")
-                        }
-
-                        Divider()
-                        HStack {
-                            Text(Image(systemName: "sunset"))
-                                .foregroundColor(.yellow)
-                            Text("- Weekly Tasks")
-                                .font(.title3)
-                                .foregroundColor(.yellow)
-                                .underline()
-                            .padding(.top)
-                        }
-                        Text("- Check inside all vacant rooms")
-                        Text("- Walk the perimeter of the property")
-
-                        Divider()
-                        HStack {
-                            Text(Image(systemName: "calendar"))
-                                .foregroundColor(.yellow)
-                            Text("- Monthly Tasks")
-                                .underline()
-                                .foregroundColor(.yellow)
-                                .padding(.top)
-                        }
-                        Text("- Test Security alarm")
-                        Text("- Test motion detectors")
-                        Text("- Test smoke alarm")
-                    }
-                    .padding(.all)
-                    Spacer()
+            List {
+                Section(header: HStack{
+                    Text(Image(systemName: "moon.stars"))
+                    Text("Nightly tasks")
+                        .font(.title3)
+                        .underline()
+                }) {
+                    ForEach(nightlyTasks, id: \.self, content: {
+                        taskName in
+                        Text(taskName)
+                    })
                 }
-                Spacer()
+                Section(header: HStack{
+                    Text(Image(systemName: "sunset"))
+                    Text("Weekly Tasks")
+                        .font(.title3)
+                        .underline()
+                }) {
+                    ForEach(weeklyTasks, id: \.self, content: {
+                        taskName in
+                        Text(taskName)
+                    })
+                }
+                Section(header: HStack{
+                    Text(Image(systemName: "calendar"))
+                    Text("Monthly Tasks")
+                        .font(.title3)
+                        .underline()
+
+                }) {
+                    ForEach(monthlyTasks, id: \.self, content: {
+                        taskName in
+                        Text(taskName)
+                    })
+                }
             }
+            .listStyle(GroupedListStyle())
         }
         
 
