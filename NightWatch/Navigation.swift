@@ -11,7 +11,11 @@ struct Navigation: View {
     var body: some View {
         VStack {
             NavigationView {
-                NavigationLink(destination: Circle()) { /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/ }
+                NavigationLink(destination: VStack {
+                    Circle()
+                    Text("Next to the circle")
+                }.navigationTitle("Page 2")) {Text("Click Here")}
+                .navigationTitle("Home")
             }
         }
     }
