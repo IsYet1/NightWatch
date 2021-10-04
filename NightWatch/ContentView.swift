@@ -53,13 +53,3 @@ struct TaskSectionHeader: View {
     }
 }
 
-struct DetailsView: View {
-    let taskName: String
-    var body: some View {
-        VStack {
-            Text(taskName)
-            Text("Placeholder for Task Descr")
-            Text("Placeholder for Mark Complete button")
-        }
-    }
-}
