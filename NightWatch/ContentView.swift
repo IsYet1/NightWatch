@@ -15,7 +15,7 @@ struct ContentView: View {
                 }) {
                     ForEach(nightlyTasks, id: \.self, content: {
                         taskName in
-                        Text(taskName)
+                        NavigationLink(taskName, destination: Text(taskName))
                     })
                 }
                 Section(header: HStack{
@@ -26,7 +26,7 @@ struct ContentView: View {
                 }) {
                     ForEach(weeklyTasks, id: \.self, content: {
                         taskName in
-                        Text(taskName)
+                        NavigationLink(taskName, destination: Text(taskName))
                     })
                 }
                 Section(header: HStack{
@@ -38,11 +38,12 @@ struct ContentView: View {
                 }) {
                     ForEach(monthlyTasks, id: \.self, content: {
                         taskName in
-                        Text(taskName)
+                        NavigationLink(taskName, destination: Text(taskName))
                     })
                 }
             }
             .listStyle(GroupedListStyle())
+            .navigationTitle("Home")
         }
         
 
