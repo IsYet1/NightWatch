@@ -15,7 +15,11 @@ struct ContentView: View {
                 }) {
                     ForEach(nightlyTasks, id: \.self, content: {
                         taskName in
-                        NavigationLink(taskName, destination: Text(taskName))
+                        NavigationLink(taskName, destination: VStack {
+                            Text(taskName)
+                            Text("Placeholder for Task Descr")
+                            Text("Placeholder for Mark Complete button")
+                        })
                     })
                 }
                 Section(header: HStack{
