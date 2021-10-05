@@ -21,20 +21,20 @@ struct TaskData0: View {
                 Image(systemName: theTask.isComplete ? "checkmark.square" : "square")
                 Text(theTask.name)
             }
-            ControlPanel(isComplete: self.$theTask.isComplete)
+            ControlPanel(theTask: self.theTask)
         }
     }
 }
 
 
 struct ControlPanel: View {
-    @Binding var isComplete: Bool
+    @ObservedObject var theTask: Task
     var body: some View {
         HStack{
             Button(action: {
-                isComplete.toggle()
+                theTask.isComplete.toggle()
             }) {
-                Text(isComplete ? "Reset" : "Mark Complete")
+                Text(theTask.isComplete ? "Reset" : "Mark Complete")
             }.padding(.top)
         }
     }
