@@ -32,14 +32,9 @@ struct ControlPanel: View {
     var body: some View {
         HStack{
             Button(action: {
-                theTask.isComplete = true
+                theTask.isComplete.toggle()
             }) {
-                Text("Mark Complete")
-            }.padding(.top)
-            Button(action: {
-                theTask.isComplete = false
-            }) {
-                Text("Reset")
+                Text(theTask.isComplete ? "Reset" : "Mark Complete")
             }.padding(.top)
         }
     }
