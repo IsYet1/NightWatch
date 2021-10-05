@@ -14,27 +14,27 @@ struct TaskData0_Previews: PreviewProvider {
 }
 
 struct TaskData0: View {
-    @State var theTask = Task(name: "Check all windows", isComplete: false, lastCompleted: nil)
+    @StateObject private var theTask = Task(name: "Check all windows", isComplete: false, lastCompleted: nil)
     var body: some View {
         VStack {
             HStack{
                 Image(systemName: theTask.isComplete ? "checkmark.square" : "square")
                 Text(theTask.name)
             }
-            ControlPanel(theTask: self.$theTask)
+            ControlPanel(isComplete: self.$theTask.isComplete)
         }
     }
 }
 
 
 struct ControlPanel: View {
-    @Binding var theTask: Task
+    @Binding var isComplete: Bool
     var body: some View {
         HStack{
             Button(action: {
-                theTask.isComplete.toggle()
+                isComplete.toggle()
             }) {
-                Text(theTask.isComplete ? "Reset" : "Mark Complete")
+                Text(isComplete ? "Reset" : "Mark Complete")
             }.padding(.top)
         }
     }
