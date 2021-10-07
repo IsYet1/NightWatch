@@ -9,32 +9,32 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
-                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
-                        task in
-                        NavigationLink(destination: DetailsView(task: task),
-                                       label: {TaskRow(task: task)}
-                        )
-                    })
-                }
-                
-                Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-                    ForEach(nightWatchTasks.weeklyTaskObjs, content: {
-                        task in
-                        NavigationLink(destination: DetailsView(task: task),
-                                       label: {TaskRow(task: task)}
-                        )
-                    })
-                }
-                
-                Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
-                    ForEach(nightWatchTasks.monthlyTaskObjs, content: {
-                        task in
-                        NavigationLink(destination: DetailsView(task: task),
-                                       label: {TaskRow(task: task)}
-                        )
-                    })
-                }
+//                Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
+//                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
+//                        task in
+//                        NavigationLink(destination: DetailsView(task: task),
+//                                       label: {TaskRow(task: task)}
+//                        )
+//                    })
+//                }
+//                
+//                Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
+//                    ForEach(nightWatchTasks.weeklyTaskObjs, content: {
+//                        task in
+//                        NavigationLink(destination: DetailsView(task: task),
+//                                       label: {TaskRow(task: task)}
+//                        )
+//                    })
+//                }
+//                
+//                Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
+//                    ForEach(nightWatchTasks.monthlyTaskObjs, content: {
+//                        task in
+//                        NavigationLink(destination: DetailsView(task: task),
+//                                       label: {TaskRow(task: task)}
+//                        )
+//                    })
+//                }
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Home")
