@@ -12,6 +12,7 @@ struct DetailsView: View {
     var body: some View {
         VStack {
             Text(task.name)
+            Text("Placeholder for Task Descr")
             Button(action: {
                 task.isComplete.toggle()
             }) {

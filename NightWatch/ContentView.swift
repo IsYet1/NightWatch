@@ -9,14 +9,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-//                Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
-//                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
-//                        task in
-//                        NavigationLink(destination: DetailsView(task: task),
-//                                       label: {TaskRow(task: task)}
-//                        )
-//                    })
-//                }
+                Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
+                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
+                        task in
+                        let nightwatchTaskWrapper = $nightWatchTasks
+                        let tasksBinding = nightwatchTaskWrapper.nightlyTaskObjs
+                        let theTaskBinding = tasksBinding[0]
+                        NavigationLink(destination: DetailsView(task: theTaskBinding),
+                                       label: {TaskRow(task: task)}
+                        )
+                    })
+                }
 //                
 //                Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
 //                    ForEach(nightWatchTasks.weeklyTaskObjs, content: {
