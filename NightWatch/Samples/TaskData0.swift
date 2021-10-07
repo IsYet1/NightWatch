@@ -14,7 +14,7 @@ struct TaskData0_Previews: PreviewProvider {
 }
 
 struct TaskData0: View {
-    @StateObject private var theTask = Task(name: "Check all windows", isComplete: false, lastCompleted: nil)
+    @StateObject private var theTask = TaskClass(name: "Check all windows", isComplete: false, lastCompleted: nil)
     var body: some View {
         VStack {
             HStack{
@@ -28,7 +28,7 @@ struct TaskData0: View {
 
 
 struct ControlPanel: View {
-    @ObservedObject var theTask: Task
+    @ObservedObject var theTask: TaskClass
     var body: some View {
         HStack{
             Button(action: {

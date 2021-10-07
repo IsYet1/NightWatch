@@ -13,8 +13,9 @@
 		CE038062255C01AD000F9225 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE038061255C01AD000F9225 /* Preview Assets.xcassets */; };
 		F62F6ACB270BBE0300BC3B81 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F6ACA270BBE0300BC3B81 /* DetailsView.swift */; };
 		F62F6ACE270BBFE200BC3B81 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F6ACD270BBFE200BC3B81 /* Tabs.swift */; };
-		F651F0CD270D0A80009BDC10 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651F0CC270D0A80009BDC10 /* Task.swift */; };
+		F651F0CD270D0A80009BDC10 /* TaskClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651F0CC270D0A80009BDC10 /* TaskClass.swift */; };
 		F651F0CF270D0CA6009BDC10 /* TaskData0.swift in Sources */ = {isa = PBXBuildFile; fileRef = F651F0CE270D0CA6009BDC10 /* TaskData0.swift */; };
+		F6B1E52A270E746000E26771 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1E529270E746000E26771 /* Task.swift */; };
 		F6EB25D02705228300C0CD08 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB25CF2705228300C0CD08 /* Lists.swift */; };
 		F6EB25D22705291500C0CD08 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB25D12705291500C0CD08 /* Navigation.swift */; };
 /* End PBXBuildFile section */
@@ -28,8 +29,9 @@
 		CE038063255C01AD000F9225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F62F6ACA270BBE0300BC3B81 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		F62F6ACD270BBFE200BC3B81 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
-		F651F0CC270D0A80009BDC10 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F651F0CC270D0A80009BDC10 /* TaskClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskClass.swift; sourceTree = "<group>"; };
 		F651F0CE270D0CA6009BDC10 /* TaskData0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskData0.swift; sourceTree = "<group>"; };
+		F6B1E529270E746000E26771 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F6EB25CF2705228300C0CD08 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 		F6EB25D12705291500C0CD08 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +73,7 @@
 				CE038063255C01AD000F9225 /* Info.plist */,
 				CE038060255C01AD000F9225 /* Preview Content */,
 				F62F6ACA270BBE0300BC3B81 /* DetailsView.swift */,
-				F651F0CC270D0A80009BDC10 /* Task.swift */,
+				F6B1E529270E746000E26771 /* Task.swift */,
 			);
 			path = NightWatch;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 		F62F6ACC270BBF9A00BC3B81 /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				F651F0CC270D0A80009BDC10 /* TaskClass.swift */,
 				F6EB25D12705291500C0CD08 /* Navigation.swift */,
 				F6EB25CF2705228300C0CD08 /* Lists.swift */,
 				F62F6ACD270BBFE200BC3B81 /* Tabs.swift */,
@@ -169,8 +172,9 @@
 				CE03805B255C01AB000F9225 /* NightWatchApp.swift in Sources */,
 				F6EB25D02705228300C0CD08 /* Lists.swift in Sources */,
 				F6EB25D22705291500C0CD08 /* Navigation.swift in Sources */,
-				F651F0CD270D0A80009BDC10 /* Task.swift in Sources */,
+				F651F0CD270D0A80009BDC10 /* TaskClass.swift in Sources */,
 				F62F6ACE270BBFE200BC3B81 /* Tabs.swift in Sources */,
+				F6B1E52A270E746000E26771 /* Task.swift in Sources */,
 				F651F0CF270D0CA6009BDC10 /* TaskData0.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

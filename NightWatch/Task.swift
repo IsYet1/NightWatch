@@ -2,20 +2,13 @@
 //  Task.swift
 //  NightWatch
 //
-//  Created by Don McKenzie on 10/5/21.
+//  Created by Don McKenzie on 10/6/21.
 //
 
 import Foundation
 
-class Task: ObservableObject {
-    internal init(name: String, isComplete: Bool, lastCompleted: Date? = nil) {
-        self.name = name
-        self.isComplete = isComplete
-        self.lastCompleted = lastCompleted
-    }
-    
+struct Task {
     let name: String
-    @Published var isComplete: Bool
-    var lastCompleted: Date? // Optional
+    var isComplete: Bool
+    var lastCompletedDate: Date?
 }
-
