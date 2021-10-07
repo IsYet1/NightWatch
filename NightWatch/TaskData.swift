@@ -29,4 +29,24 @@ let monthlyTasks = [
     "Test smoke alarm",
 ]
 
+let nightlyTaskObjs = [
+    Task(name: "Check all windows", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Check all doors", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Check the safe is locked", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Check the mailbox", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Inspect security cameras", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Clear ice from sidewalks", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Document \"strange and unusual\" occurences", isComplete: false, lastCompletedDate: nil),
+    Task(name: "One item too many", isComplete: false, lastCompletedDate: nil),
+]
 
+let weeklyTaskObjs = [
+    Task(name: "Check inside all vacant rooms", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Walk the perimeter of the property", isComplete: false, lastCompletedDate: nil),
+]
+
+let monthlyTaskObjs = [
+    Task(name: "Test Security alarm", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Test motion detectors", isComplete: false, lastCompletedDate: nil),
+    Task(name: "Test smoke alarm", isComplete: false, lastCompletedDate: nil),
+]

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DetailsView: View {
-    let taskName: String
+    let task: Task
     var body: some View {
         VStack {
-            Text(taskName)
+            Text(task.name)
             Text("Placeholder for Task Descr")
             Text("Placeholder for Mark Complete button")
         }
@@ -19,6 +19,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailsView(taskName: "Test Task")
+        DetailsView(task: Task(name: "Preview task", isComplete: false, lastCompletedDate: nil))
     }
 }

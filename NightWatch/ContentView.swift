@@ -8,21 +8,23 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
-                    ForEach(nightlyTasks, id: \.self, content: {
-                        taskName in
-                        NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(nightlyTaskObjs, content: {
+                        task in
+                        NavigationLink(task.name, destination: DetailsView(task: task))
                     })
                 }
+                
                 Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-                    ForEach(weeklyTasks, id: \.self, content: {
-                        taskName in
-                        NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(weeklyTaskObjs, content: {
+                        task in
+                        NavigationLink(task.name, destination: DetailsView(task: task))
                     })
                 }
+                
                 Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
-                    ForEach(monthlyTasks, id: \.self, content: {
-                        taskName in
-                        NavigationLink(taskName, destination: DetailsView(taskName: taskName))
+                    ForEach(monthlyTaskObjs, content: {
+                        task in
+                        NavigationLink(task.name, destination: DetailsView(task: task))
                     })
                 }
             }
