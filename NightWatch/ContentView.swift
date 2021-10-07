@@ -56,6 +56,12 @@ struct ContentView: View {
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Home")
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Toggle("Focus Mode", isOn: .constant(true)).toggleStyle(.switch)
+                    
+                }
+            }
         }
         
 
@@ -67,8 +73,8 @@ struct ContentView_Previews: PreviewProvider {
         let nightWatchTasks = NightWatchTasks()
         Group {
             ContentView(nightWatchTasks: nightWatchTasks)
-            TaskRow(task: Task(name: "Test Task", isComplete: false, lastCompletedDate: nil))
-                .previewLayout(.fixed(width: 300, height: 70))
+//            TaskRow(task: Task(name: "Test Task", isComplete: false, lastCompletedDate: nil))
+//                .previewLayout(.fixed(width: 300, height: 70))
         }
     }
 }
