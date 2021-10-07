@@ -10,34 +10,49 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
-                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
-                        task in
+                    let taskIndices = nightlyTaskObjs.indices
+                    let tasks = nightWatchTasks.nightlyTaskObjs
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
                         let nightwatchTaskWrapper = $nightWatchTasks
                         let tasksBinding = nightwatchTaskWrapper.nightlyTaskObjs
-                        let theTaskBinding = tasksBinding[0]
+                        let theTaskBinding = tasksBinding[taskIndex]
                         NavigationLink(destination: DetailsView(task: theTaskBinding),
                                        label: {TaskRow(task: task)}
                         )
                     })
                 }
-//                
-//                Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-//                    ForEach(nightWatchTasks.weeklyTaskObjs, content: {
-//                        task in
-//                        NavigationLink(destination: DetailsView(task: task),
-//                                       label: {TaskRow(task: task)}
-//                        )
-//                    })
-//                }
-//                
-//                Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
-//                    ForEach(nightWatchTasks.monthlyTaskObjs, content: {
-//                        task in
-//                        NavigationLink(destination: DetailsView(task: task),
-//                                       label: {TaskRow(task: task)}
-//                        )
-//                    })
-//                }
+                
+                Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
+                    let taskIndices = weeklyTaskObjs.indices
+                    let tasks = nightWatchTasks.weeklyTaskObjs
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
+                        let nightwatchTaskWrapper = $nightWatchTasks
+                        let tasksBinding = nightwatchTaskWrapper.weeklyTaskObjs
+                        let theTaskBinding = tasksBinding[taskIndex]
+                        NavigationLink(destination: DetailsView(task: theTaskBinding),
+                                       label: {TaskRow(task: task)}
+                        )
+                    })
+                }
+                
+                Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
+                    let taskIndices = monthlyTaskObjs.indices
+                    let tasks = nightWatchTasks.monthlyTaskObjs
+                    let taskIndexPairs = Array(zip(tasks, taskIndices))
+                    ForEach(taskIndexPairs, id:\.0.id, content: {
+                        task, taskIndex in
+                        let nightwatchTaskWrapper = $nightWatchTasks
+                        let tasksBinding = nightwatchTaskWrapper.monthlyTaskObjs
+                        let theTaskBinding = tasksBinding[taskIndex]
+                        NavigationLink(destination: DetailsView(task: theTaskBinding),
+                                       label: {TaskRow(task: task)}
+                        )
+                    })
+                }
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Home")
