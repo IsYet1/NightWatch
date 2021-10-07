@@ -4,11 +4,13 @@ import SwiftUI
 // Tasks are coming from the Lists.view file
 
 struct ContentView: View {
+    @ObservedObject var nightWatchTasks: NightWatchTasks
+    
     var body: some View {
         NavigationView {
             List {
                 Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
-                    ForEach(nightlyTaskObjs, content: {
+                    ForEach(nightWatchTasks.nightlyTaskObjs, content: {
                         task in
                         NavigationLink(destination: DetailsView(task: task),
                                        label: {TaskRow(task: task)}
@@ -17,7 +19,7 @@ struct ContentView: View {
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
-                    ForEach(weeklyTaskObjs, content: {
+                    ForEach(nightWatchTasks.weeklyTaskObjs, content: {
                         task in
                         NavigationLink(destination: DetailsView(task: task),
                                        label: {TaskRow(task: task)}
@@ -26,7 +28,7 @@ struct ContentView: View {
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
-                    ForEach(monthlyTaskObjs, content: {
+                    ForEach(nightWatchTasks.monthlyTaskObjs, content: {
                         task in
                         NavigationLink(destination: DetailsView(task: task),
                                        label: {TaskRow(task: task)}
@@ -44,8 +46,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        let nightWatchTasks = NightWatchTasks()
         Group {
-            ContentView()
+            ContentView(nightWatchTasks: nightWatchTasks)
             TaskRow(task: Task(name: "Test Task", isComplete: false, lastCompletedDate: nil))
                 .previewLayout(.fixed(width: 300, height: 70))
         }
