@@ -10,21 +10,27 @@ struct ContentView: View {
                 Section(header: TaskSectionHeader(symbolSystemName: "moon.stars", headerText: "Nightly Tasks")) {
                     ForEach(nightlyTaskObjs, content: {
                         task in
-                        NavigationLink(task.name, destination: DetailsView(task: task))
+                        NavigationLink(destination: DetailsView(task: task),
+                                       label: {TaskRow(task: task)}
+                        )
                     })
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "sunset", headerText: "Weekly Tasks")) {
                     ForEach(weeklyTaskObjs, content: {
                         task in
-                        NavigationLink(task.name, destination: DetailsView(task: task))
+                        NavigationLink(destination: DetailsView(task: task),
+                                       label: {TaskRow(task: task)}
+                        )
                     })
                 }
                 
                 Section(header: TaskSectionHeader(symbolSystemName: "calendar", headerText: "Monthly Tasks")) {
                     ForEach(monthlyTaskObjs, content: {
                         task in
-                        NavigationLink(task.name, destination: DetailsView(task: task))
+                        NavigationLink(destination: DetailsView(task: task),
+                                       label: {TaskRow(task: task)}
+                        )
                     })
                 }
             }
@@ -38,7 +44,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            TaskRow(task: Task(name: "Test Task", isComplete: false, lastCompletedDate: nil))
+                .previewLayout(.fixed(width: 300, height: 70))
+        }
     }
 }
 
@@ -55,3 +65,24 @@ struct TaskSectionHeader: View {
     }
 }
 
+
+struct TaskRow: View {
+    let task: Task
+    var body: some View {
+        VStack {
+            if task.isComplete {
+                HStack {
+                    Image(systemName: "checkmark.square")
+                    Text(task.name)
+                        .foregroundColor(.gray)
+                        .strikethrough()
+                }
+            } else {
+                HStack {
+                    Image(systemName: "square")
+                    Text(task.name)
+                }
+            }
+        }
+    }
+}
