@@ -25,6 +25,8 @@ struct ContentView: View {
                                            label: {TaskRow(task: task)}
                             )
                         }
+                    }).onDelete(perform: {indexSet in
+                        nightWatchTasks.nightlyTaskObjs.remove(atOffsets: indexSet)
                     })
                 }
                 
@@ -42,6 +44,8 @@ struct ContentView: View {
                                            label: {TaskRow(task: task)}
                             )
                         }
+                    }).onDelete(perform: {indexSet in
+                        nightWatchTasks.weeklyTaskObjs.remove(atOffsets: indexSet)
                     })
                 }
                 
@@ -59,6 +63,8 @@ struct ContentView: View {
                                            label: {TaskRow(task: task)}
                             )
                         }
+                    }).onDelete(perform: {indexSet in
+                        nightWatchTasks.monthlyTaskObjs.remove(atOffsets: indexSet)
                     })
                 }
             }
