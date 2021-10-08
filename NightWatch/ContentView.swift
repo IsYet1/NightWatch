@@ -20,7 +20,7 @@ struct ContentView: View {
                         let tasksBinding = nightwatchTaskWrapper.nightlyTaskObjs
                         let theTaskBinding = tasksBinding[taskIndex]
                         
-                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                        if !focusModeOn || (focusModeOn && !task.isComplete) {
                             NavigationLink(destination: DetailsView(task: theTaskBinding),
                                            label: {TaskRow(task: task)}
                             )
@@ -37,7 +37,7 @@ struct ContentView: View {
                         let nightwatchTaskWrapper = $nightWatchTasks
                         let tasksBinding = nightwatchTaskWrapper.weeklyTaskObjs
                         let theTaskBinding = tasksBinding[taskIndex]
-                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                        if !focusModeOn || (focusModeOn && !task.isComplete) {
                             NavigationLink(destination: DetailsView(task: theTaskBinding),
                                            label: {TaskRow(task: task)}
                             )
@@ -54,7 +54,7 @@ struct ContentView: View {
                         let nightwatchTaskWrapper = $nightWatchTasks
                         let tasksBinding = nightwatchTaskWrapper.monthlyTaskObjs
                         let theTaskBinding = tasksBinding[taskIndex]
-                        if focusModeOn == false || (focusModeOn && task.isComplete == false) {
+                        if !focusModeOn || (focusModeOn && !task.isComplete) {
                             NavigationLink(destination: DetailsView(task: theTaskBinding),
                                            label: {TaskRow(task: task)}
                             )
