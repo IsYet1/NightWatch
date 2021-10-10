@@ -9,10 +9,16 @@ import SwiftUI
 
 struct DetailsView: View {
     @Binding var task: Task
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         VStack {
             Text(task.name)
-            Text("Placeholder for Task Descr")
+            
+            if verticalSizeClass == .regular {
+                Divider()
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.").padding()
+            }
             Button(action: {
                 task.isComplete.toggle()
             }) {
@@ -27,15 +33,3 @@ struct DetailsView_Previews: PreviewProvider {
     }
 }
 
-//struct ControlPanel1: View {
-//    @ObservedObject var theTask: TaskClass
-//    var body: some View {
-//        HStack{
-//            Button(action: {
-//                theTask.isComplete.toggle()
-//            }) {
-//                Text(theTask.isComplete ? "Reset" : "Mark Complete")
-//            }.padding(.top)
-//        }
-//    }
-//}
