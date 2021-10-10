@@ -6,6 +6,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var nightWatchTasks: NightWatchTasks
     @State private var focusModeOn = false
+    @State private var resetAlertShowing = false
     
     var body: some View {
         NavigationView {
@@ -27,6 +28,9 @@ struct ContentView: View {
                         }
                     }).onDelete(perform: {indexSet in
                         nightWatchTasks.nightlyTaskObjs.remove(atOffsets: indexSet)
+                    }).onMove(perform: {indices, newOffset in
+                            nightWatchTasks.nightlyTaskObjs
+                                .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
                 
@@ -46,6 +50,9 @@ struct ContentView: View {
                         }
                     }).onDelete(perform: {indexSet in
                         nightWatchTasks.weeklyTaskObjs.remove(atOffsets: indexSet)
+                    }).onMove(perform: {indices, newOffset in
+                            nightWatchTasks.nightlyTaskObjs
+                                .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
                 
@@ -65,6 +72,9 @@ struct ContentView: View {
                         }
                     }).onDelete(perform: {indexSet in
                         nightWatchTasks.monthlyTaskObjs.remove(atOffsets: indexSet)
+                    }).onMove(perform: {indices, newOffset in
+                            nightWatchTasks.nightlyTaskObjs
+                                .move(fromOffsets: indices, toOffset: newOffset)
                     })
                 }
             }
@@ -75,8 +85,26 @@ struct ContentView: View {
                     Toggle("Focus Mode", isOn: $focusModeOn).toggleStyle(.switch)
                     
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Reset") {
+                        resetAlertShowing = true
+                    }
+                }
+
             }
-        }
+        }.alert(isPresented: $resetAlertShowing, content: {
+            Alert(title: Text("Reset List"), message: Text("Are you sure?"),
+                  primaryButton: .cancel(), secondaryButton: .destructive(Text("Yes, reset it"),
+                  action: {
+                    let refreshNightWatchTasks = NightWatchTasks()
+                    self.nightWatchTasks.nightlyTaskObjs = refreshNightWatchTasks.nightlyTaskObjs
+                    self.nightWatchTasks.weeklyTaskObjs = refreshNightWatchTasks.weeklyTaskObjs
+                    self.nightWatchTasks.monthlyTaskObjs = refreshNightWatchTasks.monthlyTaskObjs
+            }))
+        })
         
 
     }
